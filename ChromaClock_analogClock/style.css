@@ -1,0 +1,107 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    min-height:100vh;
+    background:#c5f6ee;
+}
+
+.clock{
+    position:absolute;
+    width:300px;
+    height:300px;
+    background-color:rgb(12, 12, 79);
+    display:flex; 
+    justify-content: center;
+    align-items:center;
+    border-radius:60px;
+    box-shadow: 10px 15px 15px 15px rgb(58, 112, 112);
+    
+}
+
+
+.clock .numbers{
+   position:absolute;
+   inset: 15px ;
+   background:rgba(32, 169, 146, 0.942);
+   border-radius: 50%;
+   box-shadow: inset 20px 50px  rgb(48, 113, 141);
+}
+.clock .numbers span{
+    position:absolute;
+    font-size: 35px;
+    inset:5px;
+    text-align: center;
+    color:black;
+    transform: rotate(calc(90deg*var(--i)));
+}
+.numbers span b{
+    display:inline-block;
+    transform: rotate(calc(-90deg*var(--i)));
+}
+.numbers::before{
+    content:' ';
+    position:absolute;
+    background:linear-gradient(rgb(77, 180, 166),white);
+    border-radius:60%;
+    inset:35px;
+    animation:animateNUmbers 2s linear infinite;
+
+}
+
+@keyframes animateNumbers{
+    0%
+    {transform: rotate(360deg);}
+    100%
+    {transform: rotate(0deg);}
+
+}
+
+.numbers::after{
+    content:' ';
+    position:absolute;
+    border-radius:60%;
+    inset:45px;
+    background-color: rgba(181, 180, 180, 0.844);
+}
+
+.hr,.min,.sec{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom;
+    
+}
+.hr {
+    height: 15%;
+    width: 4px;
+    background-color: rgb(48, 113, 141);
+    top: 37%;
+    left: 48%;
+    z-index: 11;
+}
+.min {
+    height: 21%;
+    width: 3px;
+    background-color: white;
+    top: 30%;
+    left: 48%;
+    z-index: 12;
+}
+
+.sec {
+width: 2px;
+background: black;
+height: 30%;
+top: 20%;
+left: 48%;
+z-index: 14;
+    }
